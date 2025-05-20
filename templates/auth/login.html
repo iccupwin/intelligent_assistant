@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Log In - Intelligent Assistant{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden shadow-lg">
+    <div class="px-6 py-8">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">Log In</h2>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            
+            {% if form.non_field_errors %}
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                {% for error in form.non_field_errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ form.username.id_for_label }}">
+                    Username or Email
+                </label>
+                {{ form.username }}
+                {% if form.username.errors %}
+                <p class="text-red-500 text-xs italic mt-1">
+                    {{ form.username.errors.0 }}
+                </p>
+                {% endif %}
+            </div>
+            
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ form.password.id_for_label }}">
+                    Password
+                </label>
+                {{ form.password }}
+                {% if form.password.errors %}
+                <p class="text-red-500 text-xs italic mt-1">
+                    {{ form.password.errors.0 }}
+                </p>
+                {% endif %}
+            </div>
+            
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center">
+                    <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                    <label for="remember-me" class="ml-2 block text-sm text-gray-900">
+                        Remember me
+                    </label>
+                </div>
+                <div class="text-sm">
+                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                        Forgot your password?
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Sign In
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="px-6 py-4 bg-gray-50 border-t border-gray-200">
+        <p class="text-sm text-center text-gray-600">
+            Don't have an account? 
+            <a href="{% url 'register' %}" class="font-medium text-indigo-600 hover:text-indigo-500">
+                Register now
+            </a>
+        </p>
+    </div>
+</div>
+{% endblock %}

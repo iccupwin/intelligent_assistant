@@ -1,0 +1,48 @@
+# Django
+DEBUG=True
+SECRET_KEY=django-insecure-change-this-in-production
+ALLOWED_HOSTS=localhost,127.0.0.1
+LANGUAGE_CODE=en-us
+TIME_ZONE=UTC
+
+# Database
+DB_NAME=intelligent_assistant
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_HOST=localhost
+DB_PORT=5432
+
+# Vector Database
+VECTOR_DB_TYPE=FAISS
+VECTOR_DB_PATH=./vector_db
+
+# Celery
+CELERY_BROKER_URL=redis://localhost:6379/0
+
+# Planfix API
+PLANFIX_API_URL=https://api.planfix.com/v1
+PLANFIX_API_KEY=your-planfix-api-key
+PLANFIX_ACCOUNT_ID=your-planfix-account-id
+PLANFIX_USER_ID=your-planfix-user-id
+PLANFIX_USER_API_KEY=your-planfix-user-api-key
+
+# Anthropic (Claude) API
+ANTHROPIC_API_KEY=your-anthropic-api-key
+CLAUDE_MODEL=claude-3-5-sonnet
+
+# Vector Database (Choose one: FAISS/Qdrant/Weaviate)
+VECTOR_DB_TYPE=FAISS
+VECTOR_DB_PATH=./vector_db
+# If using Qdrant or Weaviate instead of FAISS
+# QDRANT_URL=http://localhost:6333
+# QDRANT_API_KEY=your-qdrant-api-key
+# WEAVIATE_URL=http://localhost:8080
+# WEAVIATE_API_KEY=your-weaviate-api-key
+
+# Security
+SECURE_SSL_REDIRECT=True
+SESSION_COOKIE_SECURE=True
+CSRF_COOKIE_SECURE=True
+
+# Celery
+CELERY_BROKER_URL=redis://localhost:6379/0

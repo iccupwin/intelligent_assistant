@@ -1,0 +1,667 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Dashboard - Intelligent Assistant{% endblock %}
+
+{% block extra_css %}
+<style>
+    .stats-card {
+        transition: all 0.3s ease;
+    }
+    .stats-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto" x-data="dashboard()">
+    <h1 class="text-2xl font-bold text-gray-900 mb-6">Dashboard</h1>
+    
+    <!-- Stats Overview -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <!-- Tasks Overview -->
+        <div class="bg-white overflow-hidden shadow rounded-lg stats-card">
+            <div class="px-4 py-5 sm:p-6">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 bg-indigo-500 rounded-md p-3">
+                        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                        </svg>
+                    </div>
+                    <div class="ml-5 w-0 flex-1">
+                        <dl>
+                            <dt class="text-sm font-medium text-gray-500 truncate">
+                                Total Tasks
+                            </dt>
+                            <dd>
+                                <div class="text-lg font-medium text-gray-900">
+                                    {{ task_stats.total }}
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex items-center justify-between">
+                        <div class="text-sm text-gray-500">
+                            Overdue Tasks
+                        </div>
+                        <div class="text-sm font-medium text-red-600">
+                            {{ task_stats.overdue }}
+                        </div>
+                    </div>
+                    <div class="mt-2 flex items-center justify-between">
+                        <div class="text-sm text-gray-500">
+                            Priority Distribution
+                        </div>
+                        <div class="flex space-x-1">
+                            {% for priority in task_stats.priority_distribution %}
+                            <div class="h-2 w-4 rounded-sm {% if priority.priority == 'urgent' %}bg-red-500{% elif priority.priority == 'high' %}bg-orange-500{% elif priority.priority == 'normal' %}bg-blue-500{% else %}bg-green-500{% endif %}" title="{{ priority.priority|title }}: {{ priority.count }}"></div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-4 sm:px-6">
+                <div class="text-sm">
+                    <a href="{% url 'task_list' %}" class="font-medium text-indigo-600 hover:text-indigo-500">
+                        View all tasks <span aria-hidden="true">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Projects Overview -->
+        <div class="bg-white overflow-hidden shadow rounded-lg stats-card">
+            <div class="px-4 py-5 sm:p-6">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 bg-purple-500 rounded-md p-3">
+                        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                        </svg>
+                    </div>
+                    <div class="ml-5 w-0 flex-1">
+                        <dl>
+                            <dt class="text-sm font-medium text-gray-500 truncate">
+                                Total Projects
+                            </dt>
+                            <dd>
+                                <div class="text-lg font-medium text-gray-900">
+                                    {{ project_stats.total }}
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    {% if project_stats.status_distribution %}
+                    <div class="flex items-center justify-between">
+                        <div class="text-sm text-gray-500">
+                            Status Distribution
+                        </div>
+                    </div>
+                    <div class="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
+                        {% for status in project_stats.status_distribution %}
+                        <div class="h-full {% cycle 'bg-indigo-500' 'bg-purple-500' 'bg-blue-500' 'bg-green-500' 'bg-yellow-500' 'bg-red-500' %}" style="width: {{ status.count|floatformat:0 }}%; float: left;" title="{{ status.status }}: {{ status.count }}"></div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-4 sm:px-6">
+                <div class="text-sm">
+                    <a href="{% url 'project_list' %}" class="font-medium text-indigo-600 hover:text-indigo-500">
+                        View all projects <span aria-hidden="true">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- User Overview -->
+        <div class="bg-white overflow-hidden shadow rounded-lg stats-card">
+            <div class="px-4 py-5 sm:p-6">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 bg-green-500 rounded-md p-3">
+                        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <div class="ml-5 w-0 flex-1">
+                        <dl>
+                            <dt class="text-sm font-medium text-gray-500 truncate">
+                                Total Users
+                            </dt>
+                            <dd>
+                                <div class="text-lg font-medium text-gray-900">
+                                    {{ user_stats.total }}
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex items-center justify-between">
+                        <div class="text-sm text-gray-500">
+                            Active Users (last 7 days)
+                        </div>
+                        <div class="text-sm font-medium text-green-600">
+                            {{ user_stats.active }}
+                        </div>
+                    </div>
+                    <div class="mt-2 h-4 bg-gray-200 rounded-full overflow-hidden">
+                        <div class="h-full bg-green-500" style="width: {{ user_stats.active|default:0|floatformat:0 }}0%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-4 sm:px-6">
+                <div class="text-sm">
+                    {% if user.is_administrator %}
+                    <a href="{% url 'user_list' %}" class="font-medium text-indigo-600 hover:text-indigo-500">
+                        View all users <span aria-hidden="true">&rarr;</span>
+                    </a>
+                    {% else %}
+                    <span class="text-gray-500">User management requires administrator access</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Vector Database Overview -->
+        <div class="bg-white overflow-hidden shadow rounded-lg stats-card">
+            <div class="px-4 py-5 sm:p-6">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        </svg>
+                    </div>
+                    <div class="ml-5 w-0 flex-1">
+                        <dl>
+                            <dt class="text-sm font-medium text-gray-500 truncate">
+                                Vector Database
+                            </dt>
+                            <dd>
+                                <div class="text-lg font-medium text-gray-900">
+                                    {% if vector_db_stats %}
+                                    {{ vector_db_stats.total_vectors }} vectors
+                                    {% else %}
+                                    Not initialized
+                                    {% endif %}
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    {% if vector_db_stats %}
+                    <div class="grid grid-cols-3 gap-2 text-center">
+                        <div>
+                            <div class="text-sm font-medium text-gray-900">{{ vector_db_stats.tasks_indexed }}</div>
+                            <div class="text-xs text-gray-500">Tasks</div>
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-gray-900">{{ vector_db_stats.projects_indexed }}</div>
+                            <div class="text-xs text-gray-500">Projects</div>
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-gray-900">{{ vector_db_stats.comments_indexed }}</div>
+                            <div class="text-xs text-gray-500">Comments</div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="text-sm text-gray-500 text-center">
+                        Database needs to be initialized
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-4 sm:px-6">
+                <div class="text-sm">
+                    {% if user.is_administrator %}
+                    <button @click="showVectorDBModal = true" class="font-medium text-indigo-600 hover:text-indigo-500">
+                        Manage vector database <span aria-hidden="true">&rarr;</span>
+                    </button>
+                    {% else %}
+                    <span class="text-gray-500">Administration requires administrator access</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Recent Activity -->
+    <div class="bg-white shadow rounded-lg mb-8">
+        <div class="px-4 py-5 sm:px-6 flex justify-between items-center">
+            <div>
+                <h3 class="text-lg leading-6 font-medium text-gray-900">
+                    Recent Activity
+                </h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                    Your most recent tasks and interactions
+                </p>
+            </div>
+            <div>
+                <button type="button" class="inline-flex items-center px-3 py-1 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Refresh
+                </button>
+            </div>
+        </div>
+        <div class="border-t border-gray-200">
+            <div class="bg-gray-50 px-4 py-3">
+                <h4 class="text-sm font-medium text-gray-500">Tasks Due Soon</h4>
+            </div>
+            <ul class="divide-y divide-gray-200">
+                {% for task in upcoming_tasks|slice:":5" %}
+                <li class="px-4 py-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="{% if task.priority == 'urgent' %}bg-red-500{% elif task.priority == 'high' %}bg-orange-500{% elif task.priority == 'normal' %}bg-blue-500{% else %}bg-green-500{% endif %} h-3 w-3 rounded-full"></div>
+                            <p class="ml-3 text-sm font-medium text-gray-900">{{ task.title }}</p>
+                        </div>
+                        <div class="ml-2 flex-shrink-0 flex">
+                            <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {% if task.is_overdue %}bg-red-100 text-red-800{% else %}bg-green-100 text-green-800{% endif %}">
+                                {% if task.deadline %}
+                                {{ task.deadline|date:"M j, Y" }}
+                                {% else %}
+                                No deadline
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-2 sm:flex sm:justify-between">
+                        <div class="sm:flex">
+                            <p class="flex items-center text-sm text-gray-500">
+                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                                </svg>
+                                {{ task.status }}
+                            </p>
+                            <p class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0 sm:ml-6">
+                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                                </svg>
+                                {{ task.project.name|default:"No project" }}
+                            </p>
+                        </div>
+                        <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
+                            <a href="{% url 'task_detail' task_id=task.id %}" class="font-medium text-indigo-600 hover:text-indigo-500">
+                                View details
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                {% empty %}
+                <li class="px-4 py-5 text-center text-sm text-gray-500">
+                    No upcoming tasks found
+                </li>
+                {% endfor %}
+            </ul>
+            {% if upcoming_tasks|length > 5 %}
+            <div class="bg-gray-50 px-4 py-4 sm:px-6">
+                <div class="text-sm">
+                    <a href="{% url 'task_list' %}" class="font-medium text-indigo-600 hover:text-indigo-500">
+                        View all upcoming tasks <span aria-hidden="true">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <!-- Admin Tools -->
+    {% if user.is_administrator %}
+    <div class="bg-white shadow rounded-lg mb-8">
+        <div class="px-4 py-5 sm:px-6">
+            <h3 class="text-lg leading-6 font-medium text-gray-900">
+                Administrator Tools
+            </h3>
+            <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                Manage system settings and database synchronization
+            </p>
+        </div>
+        <div class="border-t border-gray-200 px-4 py-5 sm:p-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Data Synchronization -->
+                <div class="border border-gray-200 rounded-lg p-4">
+                    <h4 class="text-md font-medium text-gray-900 mb-2">Data Synchronization</h4>
+                    <p class="text-sm text-gray-500 mb-4">
+                        Synchronize data from Planfix to keep your local database up to date
+                    </p>
+                    <div class="flex flex-col space-y-2">
+                        <button 
+                            @click="triggerSync('all')" 
+                            :disabled="isSyncing"
+                            class="inline-flex justify-center items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <svg x-show="isSyncing && syncType === 'all'" class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Sync All Data
+                        </button>
+                        <div class="flex space-x-2">
+                            <button 
+                                @click="triggerSync('tasks')" 
+                                :disabled="isSyncing"
+                                class="flex-1 inline-flex justify-center items-center px-2 py-1 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                                <svg x-show="isSyncing && syncType === 'tasks'" class="animate-spin -ml-1 mr-1 h-3 w-3 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Tasks
+                            </button>
+                            <button 
+                                @click="triggerSync('projects')" 
+                                :disabled="isSyncing"
+                                class="flex-1 inline-flex justify-center items-center px-2 py-1 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                                <svg x-show="isSyncing && syncType === 'projects'" class="animate-spin -ml-1 mr-1 h-3 w-3 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Projects
+                            </button>
+                            <button 
+                                @click="triggerSync('employees')" 
+                                :disabled="isSyncing"
+                                class="flex-1 inline-flex justify-center items-center px-2 py-1 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                                <svg x-show="isSyncing && syncType === 'employees'" class="animate-spin -ml-1 mr-1 h-3 w-3 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Employees
+                            </button>
+                        </div>
+                        <button 
+                            @click="triggerSync('full')" 
+                            :disabled="isSyncing"
+                            class="inline-flex justify-center items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <svg x-show="isSyncing && syncType === 'full'" class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Full Reindex
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Vector Database -->
+                <div class="border border-gray-200 rounded-lg p-4">
+                    <h4 class="text-md font-medium text-gray-900 mb-2">Vector Database</h4>
+                    <p class="text-sm text-gray-500 mb-4">
+                        Manage the vector database for semantic search and AI functionality
+                    </p>
+                    <div class="flex flex-col space-y-2">
+                        <button 
+                            @click="triggerVectorUpdate('update')" 
+                            :disabled="isUpdatingVectors"
+                            class="inline-flex justify-center items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <svg x-show="isUpdatingVectors && vectorUpdateType === 'update'" class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Update Vector Database
+                        </button>
+                        <div class="flex space-x-2">
+                            <button 
+                                @click="triggerVectorUpdate('tasks')" 
+                                :disabled="isUpdatingVectors"
+                                class="flex-1 inline-flex justify-center items-center px-2 py-1 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                                <svg x-show="isUpdatingVectors && vectorUpdateType === 'tasks'" class="animate-spin -ml-1 mr-1 h-3 w-3 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Tasks
+                            </button>
+                            <button 
+                                @click="triggerVectorUpdate('projects')" 
+                                :disabled="isUpdatingVectors"
+                                class="flex-1 inline-flex justify-center items-center px-2 py-1 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                                <svg x-show="isUpdatingVectors && vectorUpdateType === 'projects'" class="animate-spin -ml-1 mr-1 h-3 w-3 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Projects
+                            </button>
+                            <button 
+                                @click="triggerVectorUpdate('comments')" 
+                                :disabled="isUpdatingVectors"
+                                class="flex-1 inline-flex justify-center items-center px-2 py-1 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                                <svg x-show="isUpdatingVectors && vectorUpdateType === 'comments'" class="animate-spin -ml-1 mr-1 h-3 w-3 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Comments
+                            </button>
+                        </div>
+                        <button 
+                            @click="triggerVectorUpdate('rebuild')" 
+                            :disabled="isUpdatingVectors"
+                            class="inline-flex justify-center items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <svg x-show="isUpdatingVectors && vectorUpdateType === 'rebuild'" class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Rebuild from Scratch
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Vector Database Status Modal -->
+<div x-show="showVectorDBModal" class="fixed inset-0 overflow-y-auto" style="display: none;">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 transition-opacity" aria-hidden="true" @click="showVectorDBModal = false">
+            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        </div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div class="sm:flex sm:items-start">
+                    <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 sm:mx-0 sm:h-10 sm:w-10">
+                        <svg class="h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">
+                            Vector Database Status
+                        </h3>
+                        <div class="mt-2">
+                            <p class="text-sm text-gray-500">
+                                Detailed information about the vector database status
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 border-t border-gray-200 pt-4">
+                    <div x-show="loadingVectorDBStats" class="flex justify-center py-4">
+                        <svg class="animate-spin h-5 w-5 text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </div>
+                    <div x-show="!loadingVectorDBStats">
+                        <dl class="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
+                            <div class="sm:col-span-1">
+                                <dt class="text-sm font-medium text-gray-500">Status</dt>
+                                <dd class="mt-1 text-sm text-gray-900" x-text="vectorDBStats.status || 'Unknown'"></dd>
+                            </div>
+                            <div class="sm:col-span-1">
+                                <dt class="text-sm font-medium text-gray-500">Last Updated</dt>
+                                <dd class="mt-1 text-sm text-gray-900" x-text="vectorDBStats.last_indexed ? new Date(vectorDBStats.last_indexed).toLocaleString() : 'Never'"></dd>
+                            </div>
+                            <div class="sm:col-span-1">
+                                <dt class="text-sm font-medium text-gray-500">Total Vectors</dt>
+                                <dd class="mt-1 text-sm text-gray-900" x-text="vectorDBStats.total_vectors || 0"></dd>
+                            </div>
+                            <div class="sm:col-span-1">
+                                <dt class="text-sm font-medium text-gray-500">Dimensions</dt>
+                                <dd class="mt-1 text-sm text-gray-900" x-text="vectorDBStats.detailed_stats?.dimensions || 'Unknown'"></dd>
+                            </div>
+                            <div class="sm:col-span-1">
+                                <dt class="text-sm font-medium text-gray-500">Vector Type</dt>
+                                <dd class="mt-1 text-sm text-gray-900" x-text="vectorDBStats.detailed_stats?.vector_db_type || 'Unknown'"></dd>
+                            </div>
+                            <div class="sm:col-span-1">
+                                <dt class="text-sm font-medium text-gray-500">Model</dt>
+                                <dd class="mt-1 text-sm text-gray-900" x-text="vectorDBStats.detailed_stats?.model_name || 'Unknown'"></dd>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <dt class="text-sm font-medium text-gray-500">Storage</dt>
+                                <dd class="mt-1 text-sm text-gray-900" x-text="vectorDBStats.detailed_stats?.disk_space?.total_size_mb ? vectorDBStats.detailed_stats.disk_space.total_size_mb + ' MB' : 'Unknown'"></dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                <button type="button" @click="showVectorDBModal = false" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function dashboard() {
+    return {
+        showVectorDBModal: false,
+        vectorDBStats: {},
+        loadingVectorDBStats: false,
+        isSyncing: false,
+        syncType: '',
+        isUpdatingVectors: false,
+        vectorUpdateType: '',
+        
+        async triggerSync(type) {
+            if (this.isSyncing) return;
+            
+            if (type === 'full' && !confirm('Are you sure you want to perform a full reindex? This may take a long time.')) {
+                return;
+            }
+            
+            this.isSyncing = true;
+            this.syncType = type;
+            
+            try {
+                const response = await fetch('{% url "trigger_sync" %}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': this.getCsrfToken()
+                    },
+                    body: JSON.stringify({
+                        sync_type: type
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert(`${type} synchronization started in background. This may take some time to complete.`);
+                } else {
+                    alert(`Error: ${data.error || 'Unknown error'}`);
+                }
+            } catch (error) {
+                console.error('Error triggering sync:', error);
+                alert('Network error. Please try again.');
+            } finally {
+                setTimeout(() => {
+                    this.isSyncing = false;
+                    this.syncType = '';
+                }, 2000);
+            }
+        },
+        
+        async triggerVectorUpdate(type) {
+            if (this.isUpdatingVectors) return;
+            
+            if (type === 'rebuild' && !confirm('Are you sure you want to rebuild the vector database from scratch? This will delete all existing vectors and may take a long time.')) {
+                return;
+            }
+            
+            this.isUpdatingVectors = true;
+            this.vectorUpdateType = type;
+            
+            try {
+                const response = await fetch('{% url "trigger_vector_update" %}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': this.getCsrfToken()
+                    },
+                    body: JSON.stringify({
+                        update_type: type
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert(`${type} vector database update started in background. This may take some time to complete.`);
+                } else {
+                    alert(`Error: ${data.error || 'Unknown error'}`);
+                }
+            } catch (error) {
+                console.error('Error triggering vector update:', error);
+                alert('Network error. Please try again.');
+            } finally {
+                setTimeout(() => {
+                    this.isUpdatingVectors = false;
+                    this.vectorUpdateType = '';
+                }, 2000);
+            }
+        },
+        
+        async getVectorDBStats() {
+            this.loadingVectorDBStats = true;
+            
+            try {
+                const response = await fetch('{% url "vector_db_status" %}', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    this.vectorDBStats = data;
+                } else {
+                    console.error(`Error: ${data.error || 'Unknown error'}`);
+                }
+            } catch (error) {
+                console.error('Error getting vector DB stats:', error);
+            } finally {
+                this.loadingVectorDBStats = false;
+            }
+        },
+        
+        getCsrfToken() {
+            const cookieValue = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('csrftoken='))
+                ?.split('=')[1];
+            return cookieValue;
+        },
+        
+        init() {
+            this.$watch('showVectorDBModal', value => {
+                if (value) {
+                    this.getVectorDBStats();
+                }
+            });
+        }
+    };
+}
+</script>
+{% endblock %}

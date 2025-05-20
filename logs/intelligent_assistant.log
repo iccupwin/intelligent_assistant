@@ -1,0 +1,508 @@
+INFO 2025-05-20 22:28:14,578 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 22:29:10,493 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 22:29:34,264 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 22:30:39,409 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 22:30:49,708 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 22:31:11,315 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 22:31:30,347 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 22:32:45,688 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 22:41:42,219 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 22:41:47,154 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-20 22:41:47,160 basehttp "GET /chat/ HTTP/1.1" 302 0
+INFO 2025-05-20 22:41:47,219 basehttp "GET /login/?next=/chat/ HTTP/1.1" 200 5075
+WARNING 2025-05-20 22:41:47,365 log Not Found: /favicon.ico
+WARNING 2025-05-20 22:41:47,366 basehttp "GET /favicon.ico HTTP/1.1" 404 9717
+INFO 2025-05-20 22:41:47,449 basehttp "GET /static/css/tailwind-output.css HTTP/1.1" 200 38
+INFO 2025-05-20 22:41:47,451 basehttp "GET /static/js/chat.js HTTP/1.1" 200 31
+INFO 2025-05-20 22:41:47,456 basehttp "GET /static/js/chat.js HTTP/1.1" 200 31
+WARNING 2025-05-20 22:41:47,899 log Not Found: /favicon.ico
+WARNING 2025-05-20 22:41:47,899 basehttp "GET /favicon.ico HTTP/1.1" 404 9717
+INFO 2025-05-20 22:41:55,414 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2025-05-20 22:41:55,419 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-20 22:41:55,432 basehttp "GET /chat/ HTTP/1.1" 200 30186
+INFO 2025-05-20 22:48:40,645 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 22:48:44,824 basehttp "GET /chat/ HTTP/1.1" 200 30291
+INFO 2025-05-20 22:48:44,945 basehttp "GET /static/css/tailwind-output.css HTTP/1.1" 200 124
+INFO 2025-05-20 22:48:44,946 basehttp "GET /static/js/chat.js HTTP/1.1" 200 31
+INFO 2025-05-20 22:48:44,950 basehttp "GET /static/js/chat.js HTTP/1.1" 304 0
+WARNING 2025-05-20 22:48:45,657 log Not Found: /favicon.ico
+WARNING 2025-05-20 22:48:45,657 basehttp "GET /favicon.ico HTTP/1.1" 404 9717
+INFO 2025-05-20 22:48:47,573 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-20 22:48:47,582 basehttp "GET /chat/ HTTP/1.1" 200 30291
+INFO 2025-05-20 22:48:47,633 basehttp "GET /static/css/tailwind-output.css HTTP/1.1" 304 0
+INFO 2025-05-20 22:48:48,111 basehttp "GET /dashboard/ HTTP/1.1" 200 25079
+ERROR 2025-05-20 22:48:50,283 log Internal Server Error: /tasks/
+Traceback (most recent call last):
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: data/task_list.html, core/task_list.html
+ERROR 2025-05-20 22:48:50,286 basehttp "GET /tasks/ HTTP/1.1" 500 90873
+ERROR 2025-05-20 22:48:52,320 log Internal Server Error: /tasks/
+Traceback (most recent call last):
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: data/task_list.html, core/task_list.html
+ERROR 2025-05-20 22:48:52,322 basehttp "GET /tasks/ HTTP/1.1" 500 90873
+ERROR 2025-05-20 22:48:53,618 log Internal Server Error: /projects/
+Traceback (most recent call last):
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: data/project_list.html, core/project_list.html
+ERROR 2025-05-20 22:48:53,620 basehttp "GET /projects/ HTTP/1.1" 500 91008
+INFO 2025-05-20 22:48:57,505 basehttp "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-05-20 22:48:57,513 basehttp "GET /login/ HTTP/1.1" 200 6071
+INFO 2025-05-20 22:48:57,570 basehttp "GET /static/css/tailwind-output.css HTTP/1.1" 304 0
+INFO 2025-05-20 22:49:03,272 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2025-05-20 22:49:03,276 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-20 22:49:03,299 basehttp "GET /chat/ HTTP/1.1" 200 30291
+INFO 2025-05-20 22:49:03,331 basehttp "GET /static/css/tailwind-output.css HTTP/1.1" 304 0
+WARNING 2025-05-20 22:49:06,423 log Not Found: /chat/message/
+WARNING 2025-05-20 22:49:06,424 basehttp "POST /chat/message/ HTTP/1.1" 404 53
+INFO 2025-05-20 22:49:11,779 basehttp "GET /chat/new/ HTTP/1.1" 302 0
+ERROR 2025-05-20 22:49:11,813 log Internal Server Error: /chat/session/21f2c313-9cce-4b58-938e-fc2a89001805/
+Traceback (most recent call last):
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: chat/session.html
+ERROR 2025-05-20 22:49:11,815 basehttp "GET /chat/session/21f2c313-9cce-4b58-938e-fc2a89001805/ HTTP/1.1" 500 88691
+INFO 2025-05-20 22:49:18,246 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-20 22:49:18,260 basehttp "GET /chat/ HTTP/1.1" 200 31264
+INFO 2025-05-20 22:49:18,304 basehttp "GET /static/css/tailwind-output.css HTTP/1.1" 304 0
+INFO 2025-05-20 22:49:22,076 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-20 22:49:22,085 basehttp "GET /chat/ HTTP/1.1" 200 31264
+INFO 2025-05-20 22:56:02,132 basehttp "GET /chat/ HTTP/1.1" 200 31264
+INFO 2025-05-20 22:56:02,166 basehttp "GET /static/css/tailwind-output.css HTTP/1.1" 200 124
+INFO 2025-05-20 22:56:02,189 basehttp "GET /static/js/chat.js HTTP/1.1" 200 31
+WARNING 2025-05-20 22:56:02,724 log Not Found: /favicon.ico
+WARNING 2025-05-20 22:56:02,725 basehttp "GET /favicon.ico HTTP/1.1" 404 9717
+INFO 2025-05-20 22:56:03,182 basehttp "GET /dashboard/ HTTP/1.1" 200 25079
+INFO 2025-05-20 22:56:11,785 basehttp "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-05-20 22:56:11,793 basehttp "GET /login/ HTTP/1.1" 200 6071
+INFO 2025-05-20 22:56:12,901 basehttp "GET /register/ HTTP/1.1" 200 7363
+INFO 2025-05-20 22:56:22,094 basehttp "POST /register/ HTTP/1.1" 200 7705
+INFO 2025-05-20 22:56:32,136 basehttp "POST /register/ HTTP/1.1" 200 7695
+INFO 2025-05-20 22:56:39,818 basehttp "POST /register/ HTTP/1.1" 302 0
+INFO 2025-05-20 22:56:39,825 basehttp "GET /login/ HTTP/1.1" 200 6077
+INFO 2025-05-20 22:56:45,854 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2025-05-20 22:56:45,858 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-20 22:56:45,866 basehttp "GET /chat/ HTTP/1.1" 200 30324
+INFO 2025-05-20 22:56:48,242 basehttp "GET /dashboard/ HTTP/1.1" 200 25112
+INFO 2025-05-20 22:56:48,288 basehttp "GET /static/css/tailwind-output.css HTTP/1.1" 304 0
+ERROR 2025-05-20 22:56:53,931 log Internal Server Error: /tasks/
+Traceback (most recent call last):
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: data/task_list.html, core/task_list.html
+ERROR 2025-05-20 22:56:53,933 basehttp "GET /tasks/ HTTP/1.1" 500 90871
+ERROR 2025-05-20 22:56:55,761 log Internal Server Error: /projects/
+Traceback (most recent call last):
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: data/project_list.html, core/project_list.html
+ERROR 2025-05-20 22:56:55,763 basehttp "GET /projects/ HTTP/1.1" 500 91006
+ERROR 2025-05-20 22:57:15,993 log Internal Server Error: /tasks/
+Traceback (most recent call last):
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: data/task_list.html, core/task_list.html
+ERROR 2025-05-20 22:57:15,996 basehttp "GET /tasks/ HTTP/1.1" 500 90871
+INFO 2025-05-20 22:57:25,296 basehttp "GET /dashboard/ HTTP/1.1" 200 25112
+ERROR 2025-05-20 22:57:26,457 log Internal Server Error: /projects/
+Traceback (most recent call last):
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: data/project_list.html, core/project_list.html
+ERROR 2025-05-20 22:57:26,460 basehttp "GET /projects/ HTTP/1.1" 500 91006
+INFO 2025-05-20 22:57:31,771 basehttp "GET /chat/ HTTP/1.1" 200 30324
+ERROR 2025-05-20 22:57:33,276 log Internal Server Error: /projects/
+Traceback (most recent call last):
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: data/project_list.html, core/project_list.html
+ERROR 2025-05-20 22:57:33,277 basehttp "GET /projects/ HTTP/1.1" 500 91001
+WARNING 2025-05-20 22:57:45,390 log Not Found: /chat/message/
+WARNING 2025-05-20 22:57:45,392 basehttp "POST /chat/message/ HTTP/1.1" 404 53
+INFO 2025-05-20 22:57:47,316 basehttp "GET /chat/new/ HTTP/1.1" 302 0
+ERROR 2025-05-20 22:57:47,332 log Internal Server Error: /chat/session/0df8393f-a3ce-4724-be30-83cc1d9be4ba/
+Traceback (most recent call last):
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: chat/session.html
+ERROR 2025-05-20 22:57:47,333 basehttp "GET /chat/session/0df8393f-a3ce-4724-be30-83cc1d9be4ba/ HTTP/1.1" 500 88689
+INFO 2025-05-20 22:58:40,915 basehttp "GET /static/css/tailwind-output.css HTTP/1.1" 304 0
+INFO 2025-05-20 23:05:20,294 basehttp "GET /chat/ HTTP/1.1" 200 31297
+INFO 2025-05-20 23:05:20,358 basehttp "GET /static/css/tailwind-output.css HTTP/1.1" 200 124
+INFO 2025-05-20 23:05:20,359 basehttp "GET /static/js/chat.js HTTP/1.1" 200 31
+WARNING 2025-05-20 23:05:20,969 log Not Found: /favicon.ico
+WARNING 2025-05-20 23:05:20,969 basehttp "GET /favicon.ico HTTP/1.1" 404 9717
+INFO 2025-05-20 23:05:30,513 basehttp "GET /chat/new/ HTTP/1.1" 302 0
+ERROR 2025-05-20 23:05:30,540 log Internal Server Error: /chat/session/6d6ea060-25a9-46a2-8cde-361e9800bc58/
+Traceback (most recent call last):
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 523, in parse
+    self.unclosed_block_tag(parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 590, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 93: 'block'. Looking for one of: endblock.
+ERROR 2025-05-20 23:05:30,544 basehttp "GET /chat/session/6d6ea060-25a9-46a2-8cde-361e9800bc58/ HTTP/1.1" 500 182663
+INFO 2025-05-20 23:05:32,339 basehttp "GET /dashboard/ HTTP/1.1" 200 25112
+INFO 2025-05-20 23:05:33,568 basehttp "GET /tasks/ HTTP/1.1" 200 11201
+INFO 2025-05-20 23:05:38,789 basehttp "GET /dashboard/ HTTP/1.1" 200 25112
+INFO 2025-05-20 23:05:41,720 basehttp "GET /tasks/ HTTP/1.1" 200 11201
+INFO 2025-05-20 23:05:42,147 basehttp "GET /tasks/?status=&priority=&project=&assignee=&q=&sort=-created_date HTTP/1.1" 200 11201
+INFO 2025-05-20 23:05:43,181 basehttp "GET /projects/ HTTP/1.1" 200 9505
+INFO 2025-05-20 23:05:48,245 basehttp "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-05-20 23:05:48,254 basehttp "GET /login/ HTTP/1.1" 200 6071
+INFO 2025-05-20 23:05:53,696 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2025-05-20 23:05:53,700 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-20 23:05:53,714 basehttp "GET /chat/ HTTP/1.1" 200 31264
+ERROR 2025-05-20 23:05:55,674 log Internal Server Error: /chat/session/21f2c313-9cce-4b58-938e-fc2a89001805/
+Traceback (most recent call last):
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 523, in parse
+    self.unclosed_block_tag(parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 590, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 93: 'block'. Looking for one of: endblock.
+ERROR 2025-05-20 23:05:55,679 basehttp "GET /chat/session/21f2c313-9cce-4b58-938e-fc2a89001805/ HTTP/1.1" 500 182665
+ERROR 2025-05-20 23:06:01,004 log Internal Server Error: /chat/session/21f2c313-9cce-4b58-938e-fc2a89001805/
+Traceback (most recent call last):
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 523, in parse
+    self.unclosed_block_tag(parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 590, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 93: 'block'. Looking for one of: endblock.
+ERROR 2025-05-20 23:06:01,008 basehttp "GET /chat/session/21f2c313-9cce-4b58-938e-fc2a89001805/ HTTP/1.1" 500 182665
+WARNING 2025-05-20 23:06:03,135 log Not Found: /chat/message/
+WARNING 2025-05-20 23:06:03,136 basehttp "POST /chat/message/ HTTP/1.1" 404 53
+INFO 2025-05-20 23:06:04,320 basehttp "GET /chat/new/ HTTP/1.1" 302 0
+ERROR 2025-05-20 23:06:04,378 log Internal Server Error: /chat/session/ba2f8525-22c4-456c-99a6-d43477073dce/
+Traceback (most recent call last):
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 523, in parse
+    self.unclosed_block_tag(parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "F:\Dev\intelligent-assistant\intelligent_assistant\venv\Lib\site-packages\django\template\base.py", line 590, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 93: 'block'. Looking for one of: endblock.
+ERROR 2025-05-20 23:06:04,384 basehttp "GET /chat/session/ba2f8525-22c4-456c-99a6-d43477073dce/ HTTP/1.1" 500 182665
+INFO 2025-05-20 23:09:02,097 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:09:03,284 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:10:00,910 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\claude_ai.py changed, reloading.
+INFO 2025-05-20 23:10:01,844 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:10:20,617 basehttp "GET /chat/ HTTP/1.1" 200 32375
+INFO 2025-05-20 23:10:20,770 basehttp "GET /static/css/tailwind-output.css HTTP/1.1" 200 124
+INFO 2025-05-20 23:10:20,772 basehttp "GET /static/js/chat.js HTTP/1.1" 200 31
+WARNING 2025-05-20 23:10:21,656 log Not Found: /favicon.ico
+WARNING 2025-05-20 23:10:21,656 basehttp "GET /favicon.ico HTTP/1.1" 404 9717
+INFO 2025-05-20 23:10:22,657 basehttp "GET /chat/session/ba2f8525-22c4-456c-99a6-d43477073dce/ HTTP/1.1" 200 31481
+INFO 2025-05-20 23:10:23,431 basehttp "GET /chat/session/21f2c313-9cce-4b58-938e-fc2a89001805/ HTTP/1.1" 200 31481
+INFO 2025-05-20 23:10:24,051 basehttp "GET /chat/session/ba2f8525-22c4-456c-99a6-d43477073dce/ HTTP/1.1" 200 31481
+INFO 2025-05-20 23:10:24,633 basehttp "GET /chat/new/ HTTP/1.1" 302 0
+INFO 2025-05-20 23:10:24,642 basehttp "GET /chat/session/31b132de-8736-40eb-b75e-3cb7bb6716b7/ HTTP/1.1" 200 32623
+INFO 2025-05-20 23:10:25,360 basehttp "GET /chat/new/ HTTP/1.1" 302 0
+INFO 2025-05-20 23:10:25,371 basehttp "GET /chat/session/ac44aac8-2322-4f8b-a7d2-6cb6d64db573/ HTTP/1.1" 200 33744
+INFO 2025-05-20 23:10:27,334 basehttp "POST /chat/session/ac44aac8-2322-4f8b-a7d2-6cb6d64db573/delete/ HTTP/1.1" 200 17
+INFO 2025-05-20 23:10:27,355 basehttp "GET /chat/ HTTP/1.1" 200 33493
+INFO 2025-05-20 23:10:28,520 basehttp "GET /chat/session/31b132de-8736-40eb-b75e-3cb7bb6716b7/ HTTP/1.1" 200 32623
+INFO 2025-05-20 23:10:30,220 basehttp "POST /chat/session/31b132de-8736-40eb-b75e-3cb7bb6716b7/delete/ HTTP/1.1" 200 17
+INFO 2025-05-20 23:10:30,240 basehttp "GET /chat/ HTTP/1.1" 200 32375
+INFO 2025-05-20 23:10:30,857 basehttp "GET /chat/session/ba2f8525-22c4-456c-99a6-d43477073dce/ HTTP/1.1" 200 31481
