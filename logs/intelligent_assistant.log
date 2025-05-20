@@ -506,3 +506,337 @@ INFO 2025-05-20 23:10:28,520 basehttp "GET /chat/session/31b132de-8736-40eb-b75e
 INFO 2025-05-20 23:10:30,220 basehttp "POST /chat/session/31b132de-8736-40eb-b75e-3cb7bb6716b7/delete/ HTTP/1.1" 200 17
 INFO 2025-05-20 23:10:30,240 basehttp "GET /chat/ HTTP/1.1" 200 32375
 INFO 2025-05-20 23:10:30,857 basehttp "GET /chat/session/ba2f8525-22c4-456c-99a6-d43477073dce/ HTTP/1.1" 200 31481
+INFO 2025-05-20 23:10:32,028 basehttp "POST /chat/session/ba2f8525-22c4-456c-99a6-d43477073dce/delete/ HTTP/1.1" 200 17
+INFO 2025-05-20 23:10:32,047 basehttp "GET /chat/ HTTP/1.1" 200 31264
+INFO 2025-05-20 23:10:32,989 basehttp "GET /chat/session/21f2c313-9cce-4b58-938e-fc2a89001805/ HTTP/1.1" 200 30367
+INFO 2025-05-20 23:10:33,924 basehttp "GET /dashboard/ HTTP/1.1" 200 25079
+INFO 2025-05-20 23:10:37,183 basehttp "GET /tasks/ HTTP/1.1" 200 11168
+INFO 2025-05-20 23:10:38,953 basehttp "GET /dashboard/ HTTP/1.1" 200 25079
+INFO 2025-05-20 23:10:39,711 basehttp "GET /dashboard/ HTTP/1.1" 200 25079
+INFO 2025-05-20 23:10:39,751 basehttp "GET /static/css/tailwind-output.css HTTP/1.1" 200 124
+INFO 2025-05-20 23:10:39,751 basehttp "GET /static/js/chat.js HTTP/1.1" 200 31
+WARNING 2025-05-20 23:10:40,377 log Not Found: /favicon.ico
+WARNING 2025-05-20 23:10:40,378 basehttp "GET /favicon.ico HTTP/1.1" 404 9717
+INFO 2025-05-20 23:15:59,596 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\urls.py changed, reloading.
+INFO 2025-05-20 23:16:00,548 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:16:06,544 basehttp "GET /dashboard/ HTTP/1.1" 200 25079
+INFO 2025-05-20 23:16:06,795 basehttp "GET /static/js/chat.js HTTP/1.1" 200 31
+INFO 2025-05-20 23:16:06,801 basehttp "GET /static/css/tailwind-output.css HTTP/1.1" 200 124
+WARNING 2025-05-20 23:16:07,134 log Not Found: /favicon.ico
+WARNING 2025-05-20 23:16:07,134 basehttp "GET /favicon.ico HTTP/1.1" 404 9717
+INFO 2025-05-20 23:16:08,343 basehttp "GET /projects/ HTTP/1.1" 200 9472
+INFO 2025-05-20 23:16:09,917 basehttp "GET /tasks/ HTTP/1.1" 200 11168
+INFO 2025-05-20 23:16:11,399 basehttp "GET /chat/ HTTP/1.1" 200 31264
+INFO 2025-05-20 23:16:12,236 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-20 23:16:12,248 basehttp "GET /chat/ HTTP/1.1" 200 31264
+WARNING 2025-05-20 23:16:17,932 log Not Found: /chat/message/
+WARNING 2025-05-20 23:16:17,933 basehttp "POST /chat/message/ HTTP/1.1" 404 53
+INFO 2025-05-20 23:16:24,996 basehttp "GET /chat/ HTTP/1.1" 200 31264
+INFO 2025-05-20 23:16:25,045 basehttp "GET /static/css/tailwind-output.css HTTP/1.1" 200 124
+INFO 2025-05-20 23:16:25,045 basehttp "GET /static/js/chat.js HTTP/1.1" 200 31
+WARNING 2025-05-20 23:16:25,452 log Not Found: /favicon.ico
+WARNING 2025-05-20 23:16:25,453 basehttp "GET /favicon.ico HTTP/1.1" 404 9717
+WARNING 2025-05-20 23:16:35,813 log Not Found: /chat/message/
+WARNING 2025-05-20 23:16:35,813 basehttp "POST /chat/message/ HTTP/1.1" 404 53
+INFO 2025-05-20 23:17:09,893 autoreload Watching for file changes with StatReloader
+WARNING 2025-05-20 23:17:41,679 base Method Not Allowed (GET): /chat/message/
+WARNING 2025-05-20 23:17:41,680 log Method Not Allowed: /chat/message/
+WARNING 2025-05-20 23:17:41,680 basehttp "GET /chat/message/ HTTP/1.1" 405 0
+WARNING 2025-05-20 23:17:43,457 base Method Not Allowed (GET): /chat/message/
+WARNING 2025-05-20 23:17:43,457 log Method Not Allowed: /chat/message/
+WARNING 2025-05-20 23:17:43,457 basehttp "GET /chat/message/ HTTP/1.1" 405 0
+INFO 2025-05-20 23:18:13,641 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:18:17,779 basehttp "GET /chat/message/ HTTP/1.1" 301 0
+ERROR 2025-05-20 23:18:17,790 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:18:17,794 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:18:17,849 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:18:17,852 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:19:02,235 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:19:02,238 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-05-20 23:19:08,107 basehttp code 400, message Bad request version ('y')
+ERROR 2025-05-20 23:19:08,108 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:19:08,115 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-05-20 23:19:27,293 basehttp "GET /chat/ HTTP/1.1" 301 0
+ERROR 2025-05-20 23:19:27,300 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:19:27,304 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:19:28,070 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:19:28,074 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:19:28,526 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:19:28,566 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:19:28,651 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:19:28,698 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-05-20 23:19:37,905 basehttp "GET / HTTP/1.1" 301 0
+INFO 2025-05-20 23:19:37,910 basehttp code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x12\x00\x00\x00')
+ERROR 2025-05-20 23:19:37,910 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-05-20 23:19:37,912 basehttp code 400, message Bad request version ('\x00\x02\x01\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00')
+ERROR 2025-05-20 23:19:37,912 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:19:41,992 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:19:41,997 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-05-20 23:20:45,749 basehttp "GET / HTTP/1.1" 301 0
+INFO 2025-05-20 23:20:45,757 basehttp code 400, message Bad request version ('\x02h2\x08http/1.1\x00\x12\x00\x00\x00')
+ERROR 2025-05-20 23:20:45,759 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:20:45,773 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-05-20 23:20:51,535 basehttp code 400, message Bad request version ('\x18\x9c\x84?')
+ERROR 2025-05-20 23:20:51,537 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:20:51,551 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-05-20 23:21:01,944 basehttp "GET / HTTP/1.1" 301 0
+ERROR 2025-05-20 23:21:02,127 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:21:02,132 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:21:29,066 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:21:29,070 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:21:29,953 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:21:29,956 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:21:30,309 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:21:30,312 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:21:30,423 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:21:30,427 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:21:33,263 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:21:33,266 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-05-20 23:22:16,448 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:22:17,236 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:22:17,493 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:22:17,594 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-20 23:22:21,106 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:22:21,111 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-05-20 23:22:21,115 basehttp code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x06')
+ERROR 2025-05-20 23:22:21,117 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:22:21,118 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:23:25,327 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-05-20 23:23:25,328 basehttp code 400, message Bad request version ('\x00\x02\x01\x00\x00\x17\x00\x00\x00#\x00\x00\x00')
+ERROR 2025-05-20 23:23:25,329 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-05-20 23:23:38,574 basehttp code 400, message Bad request version ('\x04\x11')
+ERROR 2025-05-20 23:23:38,574 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:23:38,578 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:23:39,491 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:23:39,495 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:23:42,126 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:23:42,129 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-05-20 23:23:49,576 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-20 23:24:00,793 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:24:00,797 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-05-20 23:24:35,259 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:24:35,621 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:24:35,916 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:24:36,165 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:24:45,145 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:24:45,435 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:24:45,623 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:24:46,538 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:24:51,173 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-20 23:24:58,933 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:24:58,936 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:24:59,639 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-05-20 23:24:59,640 basehttp code 400, message Bad request version ('\x89\x8c\x9f')
+ERROR 2025-05-20 23:24:59,640 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:24:59,773 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-05-20 23:24:59,774 basehttp code 400, message Bad request version ('\x00\x02\x01\x00\x00')
+ERROR 2025-05-20 23:24:59,774 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:24:59,900 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:24:59,903 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-05-20 23:25:22,726 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-20 23:25:32,881 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:25:32,885 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-05-20 23:25:38,710 basehttp code 400, message Bad request version ('\x00\x02\x01\x00\x00')
+ERROR 2025-05-20 23:25:38,711 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+ERROR 2025-05-20 23:25:38,716 basehttp You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2025-05-20 23:26:32,183 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:26:49,013 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-20 23:26:49,016 basehttp "GET /chat/ HTTP/1.1" 302 0
+INFO 2025-05-20 23:26:49,024 basehttp "GET /login/?next=/chat/ HTTP/1.1" 200 5180
+INFO 2025-05-20 23:26:49,171 basehttp "GET /static/css/tailwind-output.css HTTP/1.1" 200 124
+INFO 2025-05-20 23:26:49,173 basehttp "GET /static/js/chat.js HTTP/1.1" 200 31
+WARNING 2025-05-20 23:26:49,850 log Not Found: /favicon.ico
+WARNING 2025-05-20 23:26:49,850 basehttp "GET /favicon.ico HTTP/1.1" 404 9717
+INFO 2025-05-20 23:26:54,827 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2025-05-20 23:26:54,832 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-20 23:26:54,850 basehttp "GET /chat/ HTTP/1.1" 200 31285
+INFO 2025-05-20 23:26:56,105 basehttp "GET /dashboard/ HTTP/1.1" 200 25079
+INFO 2025-05-20 23:26:57,451 basehttp "GET /tasks/ HTTP/1.1" 200 11168
+INFO 2025-05-20 23:26:59,115 basehttp "GET /projects/ HTTP/1.1" 200 9472
+INFO 2025-05-20 23:27:05,033 basehttp "GET /tasks/ HTTP/1.1" 200 11168
+INFO 2025-05-20 23:27:06,027 basehttp "GET /projects/ HTTP/1.1" 200 9472
+INFO 2025-05-20 23:27:06,468 basehttp "GET /dashboard/ HTTP/1.1" 200 25079
+INFO 2025-05-20 23:27:06,845 basehttp "GET /chat/ HTTP/1.1" 200 31285
+ERROR 2025-05-20 23:29:15,329 planfix_api Planfix API error: 404 Client Error: Not Found for url: https://deventky.planfix.com/rest/users?limit=500&offset=0
+INFO 2025-05-20 23:30:47,835 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:30:48,876 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:30:56,115 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:30:57,020 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-20 23:31:02,337 planfix_api Planfix API error: 404 Client Error: Not Found for url: https://deventky.planfix.com/rest/user.getList
+INFO 2025-05-20 23:31:20,893 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:31:21,985 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-20 23:31:31,924 planfix_api Planfix API error: 404 Client Error: Not Found for url: https://deventky.planfix.ru/rest/user.getList
+INFO 2025-05-20 23:43:25,056 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:43:27,960 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-20 23:43:58,639 planfix_api Planfix API error: 404 Client Error: Not Found for url: https://deventky.planfix.com/rest/user.getList
+INFO 2025-05-20 23:45:51,539 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:45:52,990 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:46:02,232 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:46:03,207 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-20 23:46:08,638 planfix_api Planfix API error: 404 Client Error: Not Found for url: https://deventky.planfix.com/rest/user.getList
+INFO 2025-05-20 23:46:56,821 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:46:57,752 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-20 23:47:20,032 planfix_api Planfix API error: 404 Client Error: Not Found for url: https://deventky.planfix.com/rest/user.getList
+INFO 2025-05-20 23:49:07,753 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:49:08,676 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:49:47,063 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:49:47,107 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:49:47,749 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:49:48,060 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:49:48,966 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:49:48,966 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:50:08,362 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:50:08,362 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:50:08,665 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:50:08,666 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:50:08,798 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:50:09,723 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:50:10,868 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:50:10,871 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:50:11,190 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:50:11,190 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:51:15,394 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:51:15,822 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:51:15,822 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:51:16,152 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:51:16,153 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:51:16,343 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:51:19,352 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:51:19,354 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:51:19,683 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:51:19,683 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:51:29,928 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:51:30,841 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:53:02,055 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:53:02,974 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-20 23:53:07,678 planfix_api Planfix API error: 404 Client Error: Not Found for url: https://deventky.planfix.com/rest/?account=deventky
+INFO 2025-05-20 23:54:47,576 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:54:48,581 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-20 23:54:53,989 planfix_api Planfix API error: 404 Client Error: Not Found for url: https://deventky.planfix.com/rest/?account=deventky
+INFO 2025-05-20 23:54:57,063 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:54:58,084 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-20 23:55:03,468 planfix_api Planfix API error: 404 Client Error: Not Found for url: https://deventky.planfix.com/rest/?account=deventky
+INFO 2025-05-20 23:55:33,532 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:55:34,736 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-20 23:55:45,838 planfix_api Planfix API error: 404 Client Error: Not Found for url: https://deventky.planfix.com/rest/?account=deventky
+INFO 2025-05-20 23:56:44,775 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:56:45,395 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:56:45,398 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:56:45,730 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:56:45,737 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:56:45,769 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:56:54,115 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:56:55,181 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-20 23:57:01,271 planfix_api Planfix API error: 404 Client Error: Not Found for url: https://deventky.planfix.com/rest/?account=deventky
+INFO 2025-05-20 23:57:32,987 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:57:33,965 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-20 23:57:41,335 planfix_api Planfix API error: 404 Client Error: Not Found for url: https://deventky.planfix.com/rest/?account=deventky
+INFO 2025-05-20 23:58:07,211 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:58:08,178 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-20 23:58:15,709 planfix_api Planfix API error: 404 Client Error: Not Found for url: https://deventky.planfix.com/rest/?account=deventky
+INFO 2025-05-20 23:58:36,361 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:58:37,327 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:58:46,617 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:58:47,569 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:58:56,758 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:58:57,612 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-20 23:59:01,307 planfix_api Planfix API error: 404 Client Error: Not Found for url: https://deventky.planfix.com/rest/?account=deventky
+INFO 2025-05-20 23:59:19,355 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:59:20,320 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:59:26,828 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:59:27,066 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:59:27,067 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:59:27,386 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:59:27,386 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:59:27,820 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:59:36,660 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:59:36,661 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:59:36,972 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:59:36,972 autoreload Watching for file changes with StatReloader
+INFO 2025-05-20 23:59:37,000 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-20 23:59:37,880 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-20 23:59:41,343 planfix_api Planfix API error: 404 Client Error: Not Found for url: https://deventky.planfix.com/rest/?account=deventky
+INFO 2025-05-20 23:59:58,459 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-20 23:59:59,450 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:00:04,814 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:00:05,341 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-21 00:00:05,341 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-21 00:00:05,678 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:00:05,682 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:00:05,815 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:00:06,870 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-21 00:00:06,873 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-21 00:00:07,195 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:00:07,195 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-21 00:00:16,023 planfix_api Planfix API error: 404 Client Error: Not Found for url: https://deventky.planfix.com/rest/?account=deventky
+INFO 2025-05-21 00:01:39,334 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:01:40,433 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:01:46,284 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-21 00:01:46,303 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-21 00:01:46,583 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:01:46,607 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:01:46,820 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-21 00:01:47,708 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-21 00:01:58,394 planfix_api Planfix API error: Expecting value: line 1 column 1 (char 0)
+INFO 2025-05-21 00:02:21,017 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:02:21,927 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:02:33,386 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:02:34,319 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-21 00:02:39,409 planfix_api Failed to parse JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR 2025-05-21 00:02:39,409 planfix_api Response content: b'<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>openresty</center>\r\n</body>\r\n</html>\r\n'
+INFO 2025-05-21 00:02:59,385 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:03:00,523 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-21 00:03:09,361 planfix_api Failed to parse JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR 2025-05-21 00:03:09,362 planfix_api Response content: b'<html>\n<head>\n<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"/>\n<title>Error 404 Not Found</title>\n</head>\n<body>\n<h2>HTTP ERROR 404 Not Found</h2>\n<table>\n<tr><th>URI:</th><td>http://deventky.planfix.com/rest/?account=deventky&amp;account=deventky</td></tr>\n<tr><th>STATUS:</th><td>404</td></tr>\n<tr><th>MESSAGE:</th><td>Not Found</td></tr>\n</table>\n<hr/><a href="https://eclipse.org/jetty">Powered by Jetty:// 12.0.7</a><hr/>\n\n</body>\n</html>\n'
+INFO 2025-05-21 00:03:27,614 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:03:28,586 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:03:35,452 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-21 00:03:35,467 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-21 00:03:35,774 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:03:35,800 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:03:35,911 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-21 00:03:36,849 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-21 00:03:37,255 planfix_api Failed to parse JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR 2025-05-21 00:03:37,255 planfix_api Response content: b'<html>\n<head>\n<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"/>\n<title>Error 404 Not Found</title>\n</head>\n<body>\n<h2>HTTP ERROR 404 Not Found</h2>\n<table>\n<tr><th>URI:</th><td>http://deventky.planfix.com/rest/user.getList?account=deventky</td></tr>\n<tr><th>STATUS:</th><td>404</td></tr>\n<tr><th>MESSAGE:</th><td>Not Found</td></tr>\n</table>\n<hr/><a href="https://eclipse.org/jetty">Powered by Jetty:// 12.0.7</a><hr/>\n\n</body>\n</html>\n'
+INFO 2025-05-21 00:04:00,800 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:04:01,763 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:04:07,162 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-21 00:04:07,162 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-21 00:04:07,178 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\intelligent_assistant\settings.py changed, reloading.
+INFO 2025-05-21 00:04:07,472 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:04:07,502 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:04:08,137 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-21 00:04:08,506 planfix_api Failed to parse JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR 2025-05-21 00:04:08,506 planfix_api Response content: b'<html>\n<head>\n<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"/>\n<title>Error 404 Not Found</title>\n</head>\n<body>\n<h2>HTTP ERROR 404 Not Found</h2>\n<table>\n<tr><th>URI:</th><td>http://deventky.planfix.com/rest/user.getList?account=deventky</td></tr>\n<tr><th>STATUS:</th><td>404</td></tr>\n<tr><th>MESSAGE:</th><td>Not Found</td></tr>\n</table>\n<hr/><a href="https://eclipse.org/jetty">Powered by Jetty:// 12.0.7</a><hr/>\n\n</body>\n</html>\n'
+INFO 2025-05-21 00:05:07,666 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:05:08,687 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-21 00:05:15,888 planfix_api Failed to parse JSON response: Expecting value: line 1 column 1 (char 0)
+ERROR 2025-05-21 00:05:15,889 planfix_api Response content: b'<html>\n<head>\n<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"/>\n<title>Error 404 Not Found</title>\n</head>\n<body>\n<h2>HTTP ERROR 404 Not Found</h2>\n<table>\n<tr><th>URI:</th><td>http://deventky.planfix.com/rest/user.getList?account=deventky</td></tr>\n<tr><th>STATUS:</th><td>404</td></tr>\n<tr><th>MESSAGE:</th><td>Not Found</td></tr>\n</table>\n<hr/><a href="https://eclipse.org/jetty">Powered by Jetty:// 12.0.7</a><hr/>\n\n</body>\n</html>\n'
+INFO 2025-05-21 00:06:22,591 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:06:23,631 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:06:33,956 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:06:34,900 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:07:07,086 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:07:08,079 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:09:28,996 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:09:30,092 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:09:37,292 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:09:38,174 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:10:05,104 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:10:06,060 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:10:18,374 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:10:19,296 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:10:46,240 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:10:47,213 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:10:52,225 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:10:53,097 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:11:45,960 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:11:47,056 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:12:02,455 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:12:03,322 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:12:31,359 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:12:32,369 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:14:09,300 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:14:10,287 autoreload Watching for file changes with StatReloader
+INFO 2025-05-21 00:15:54,050 autoreload F:\Dev\intelligent-assistant\intelligent_assistant\core\planfix_api.py changed, reloading.
+INFO 2025-05-21 00:15:54,965 autoreload Watching for file changes with StatReloader

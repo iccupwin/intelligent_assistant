@@ -17,6 +17,7 @@ env = environ.Env(
     TIME_ZONE=(str, 'UTC'),
 )
 
+
 # Read .env file if it exists
 BASE_DIR = Path(__file__).resolve().parent.parent
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
@@ -140,9 +141,9 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Planfix API settings
-PLANFIX_API_URL = env('PLANFIX_API_URL', default='https://api.planfix.com/v1')
-PLANFIX_API_KEY = env('PLANFIX_API_KEY', default='')
-PLANFIX_ACCOUNT_ID = env('PLANFIX_ACCOUNT_ID', default='')
+PLANFIX_API_URL = env('PLANFIX_API_URL', default='https://deventky.planfix.com/rest').rstrip('/')
+PLANFIX_API_TOKEN = env('PLANFIX_API_TOKEN', default='')
+PLANFIX_ACCOUNT_ID = env('PLANFIX_ACCOUNT_ID', default='deventky')
 PLANFIX_USER_ID = env('PLANFIX_USER_ID', default='')
 PLANFIX_USER_API_KEY = env('PLANFIX_USER_API_KEY', default='')
 
@@ -175,16 +176,15 @@ REST_FRAMEWORK = {
 }
 
 # Security settings
-if not DEBUG:
-    SECURE_SSL_REDIRECT = True
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
-    SECURE_HSTS_SECONDS = 31536000  # 1 year
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_PRELOAD = True
-    SECURE_CONTENT_TYPE_NOSNIFF = True
-    SECURE_BROWSER_XSS_FILTER = True
-    X_FRAME_OPTIONS = 'DENY'
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+SECURE_HSTS_SECONDS = 0
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_HSTS_PRELOAD = False
+SECURE_CONTENT_TYPE_NOSNIFF = False
+SECURE_BROWSER_XSS_FILTER = False
+X_FRAME_OPTIONS = 'DENY'
 
 # Logging configuration
 LOGGING = {

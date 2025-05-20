@@ -17,7 +17,7 @@ from core.views.data_views import (
 
 # URL patterns for the application
 urlpatterns = [
-    # Home page - redirect to dashboard or chat based on role
+    # Home page - redirect to chat interface
     path('', RedirectView.as_view(pattern_name='chat_home'), name='home'),
     
     # Authentication URLs

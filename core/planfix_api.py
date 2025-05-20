@@ -21,48 +21,74 @@ class PlanfixAPI:
     """Class to interact with the Planfix API."""
     
     def __init__(self, api_key=None, account_id=None, user_id=None, user_api_key=None):
-        self.api_url = getattr(settings, 'PLANFIX_API_URL', 'https://api.planfix.com/v1')
-        self.api_key = api_key or getattr(settings, 'PLANFIX_API_KEY', None)
+        self.api_url = getattr(settings, 'PLANFIX_API_URL', 'https://deventky.planfix.com/rest')
+        self.api_key = api_key or getattr(settings, 'PLANFIX_API_TOKEN', None)
         self.account_id = account_id or getattr(settings, 'PLANFIX_ACCOUNT_ID', None)
         self.user_id = user_id or getattr(settings, 'PLANFIX_USER_ID', None)
         self.user_api_key = user_api_key or getattr(settings, 'PLANFIX_USER_API_KEY', None)
         
         # Validate required settings
-        if not all([self.api_url, self.api_key, self.account_id]):
+        if not all([self.api_key, self.account_id]):
             raise ValidationError("Missing required Planfix API configuration.")
     
     def _get_headers(self) -> Dict[str, str]:
         """Get default headers for API requests."""
         headers = {
             'Content-Type': 'application/json',
-            'Authorization': f'Bearer {self.api_key}',
-            'X-PLANFIX-ACCOUNT': str(self.account_id),
+            'Accept': 'application/json',
+            'Authorization': f'Bearer {self.api_key}'
         }
-        
-        if self.user_id and self.user_api_key:
-            headers['X-PLANFIX-USER'] = str(self.user_id)
-            headers['X-PLANFIX-USER-API-KEY'] = self.user_api_key
-        
         return headers
     
     def _make_request(self, method: str, endpoint: str, params: Dict = None, data: Dict = None) -> Dict:
         """Make a request to the Planfix API."""
-        url = f"{self.api_url}/{endpoint}"
+        # Формируем URL без параметров
+        base_url = self.api_url.rstrip('/')
+        if not base_url.startswith('https://'):
+            base_url = f"https://{base_url}"
+        url = f"{base_url}/{endpoint}"
+        
         headers = self._get_headers()
         
+        # Формируем JSON запрос
+        if data:
+            request_data = data
+            logger.debug(f"Request URL: {url}")
+            logger.debug(f"Request headers: {headers}")
+            logger.debug(f"Request JSON: {request_data}")
+        
         try:
-            response = requests.request(
+            # Создаем сессию для более точного контроля над запросом
+            session = requests.Session()
+            
+            # Убираем params из URL, так как они передаются в JSON
+            response = session.request(
                 method=method,
                 url=url,
                 headers=headers,
-                params=params,
-                json=data
+                json=request_data if data else None,
+                params=None,  # Явно указываем, что параметров в URL быть не должно
+                allow_redirects=True  # Разрешаем следовать за перенаправлениями
             )
             
-            response.raise_for_status()
-            if response.content:
+            logger.debug(f"Response status: {response.status_code}")
+            logger.debug(f"Response headers: {response.headers}")
+            logger.debug(f"Final URL: {response.url}")  # Добавляем логирование финального URL
+            
+            # Проверяем, что ответ не пустой
+            if not response.content:
+                logger.error("Empty response received")
+                raise PlanfixAPIError("Empty response received from Planfix API")
+            
+            # Логируем содержимое ответа
+            logger.debug(f"Response content: {response.content}")
+            
+            try:
                 return response.json()
-            return {}
+            except ValueError as e:
+                logger.error(f"Failed to parse JSON response: {str(e)}")
+                logger.error(f"Response content: {response.content}")
+                raise PlanfixAPIError(f"Invalid JSON response from Planfix API: {str(e)}")
             
         except requests.exceptions.RequestException as e:
             logger.error(f"Planfix API error: {str(e)}")
@@ -76,6 +102,8 @@ class PlanfixAPI:
                 error_message = str(e)
                 
             raise PlanfixAPIError(f"Error communicating with Planfix API: {error_message}")
+        finally:
+            session.close()
     
     # Tasks related methods
     def get_tasks(self, filters: Dict = None, limit: int = 100, offset: int = 0) -> Dict:
@@ -90,20 +118,55 @@ class PlanfixAPI:
         Returns:
             Dictionary containing tasks data
         """
-        params = {
-            'limit': limit,
-            'offset': offset
-        }
-        
-        if filters:
-            params.update(filters)
-        
-        cache_key = f"planfix_tasks_{hash(frozenset(params.items()))}"
+        cache_key = f"planfix_tasks_{hash(frozenset({'offset': offset, 'limit': limit}.items()))}"
         cached_data = cache.get(cache_key)
         if cached_data:
             return cached_data
         
-        result = self._make_request('GET', 'tasks', params=params)
+        # Формируем данные запроса в соответствии с документацией API
+        data = {
+            "offset": offset,
+            "pageSize": limit,
+            "fields": "id,name,status,project,startDateTime,endDateTime,description,assignees,assigner,priority,resultChecking,parent,counterparty,dateTime,hasStartDate,hasEndDate,hasStartTime,hasEndTime,dateOfLastUpdate,duration,durationUnit,durationType,inFavorites,isSummary,isSequential,participants,auditors,isDeleted"
+        }
+        
+        # Если есть дополнительные фильтры, добавляем их
+        if filters:
+            data.update(filters)
+        
+        logger.debug(f"Getting tasks with data: {data}")
+        result = self._make_request('POST', 'task/list', data=data)
+        
+        # Проверяем структуру ответа
+        if not isinstance(result, dict):
+            logger.error(f"Unexpected response type: {type(result)}")
+            logger.error(f"Response content: {result}")
+            return {"tasks": []}
+            
+        # Проверяем наличие ключа tasks
+        if 'tasks' not in result:
+            logger.error(f"No 'tasks' key in response: {result}")
+            return {"tasks": []}
+            
+        # Проверяем, что tasks это список
+        tasks = result.get('tasks', [])
+        if not isinstance(tasks, list):
+            logger.error(f"Tasks is not a list: {type(tasks)}")
+            return {"tasks": []}
+            
+        # Проверяем каждый элемент в списке
+        valid_tasks = []
+        for task in tasks:
+            if isinstance(task, dict):
+                # Проверяем обязательные поля
+                if 'id' not in task:
+                    logger.error(f"Task missing required field 'id': {task}")
+                    continue
+                valid_tasks.append(task)
+            else:
+                logger.error(f"Task is not a dictionary: {task}")
+                
+        result['tasks'] = valid_tasks
         
         # Cache results for 5 minutes
         cache.set(cache_key, result, 300)
@@ -225,20 +288,31 @@ class PlanfixAPI:
         Returns:
             Dictionary containing projects data
         """
-        params = {
-            'limit': limit,
-            'offset': offset
-        }
-        
-        if filters:
-            params.update(filters)
-        
-        cache_key = f"planfix_projects_{hash(frozenset(params.items()))}"
+        cache_key = f"planfix_projects_{hash(frozenset({'offset': offset, 'limit': limit}.items()))}"
         cached_data = cache.get(cache_key)
         if cached_data:
             return cached_data
         
-        result = self._make_request('GET', 'projects', params=params)
+        # Формируем данные запроса в точном формате, который работал в прошлом проекте
+        data = {
+            "offset": offset,
+            "pageSize": limit,
+            "filters": [
+                {
+                    "type": 5001,
+                    "operator": "equal",
+                    "value": ""
+                }
+            ],
+            "fields": "id,name,description"
+        }
+        
+        # Если есть дополнительные фильтры, добавляем их
+        if filters:
+            data.update(filters)
+        
+        logger.debug(f"Getting projects with data: {data}")
+        result = self._make_request('POST', 'project/list', data=data)
         
         # Cache results for 10 minutes
         cache.set(cache_key, result, 600)
@@ -278,23 +352,27 @@ class PlanfixAPI:
         Returns:
             Dictionary containing employees data
         """
-        params = {
-            'limit': limit,
-            'offset': offset
-        }
-        
-        if filters:
-            params.update(filters)
-        
-        cache_key = f"planfix_employees_{hash(frozenset(params.items()))}"
+        cache_key = f"planfix_employees_{hash(frozenset({'offset': offset, 'limit': limit}.items()))}"
         cached_data = cache.get(cache_key)
         if cached_data:
             return cached_data
         
-        result = self._make_request('GET', 'users', params=params)
+        # Формируем данные запроса в точном формате, который работал в прошлом проекте
+        data = {
+            "offset": offset,
+            "pageSize": limit,
+            "fields": "id,name,midname,lastname"
+        }
         
-        # Cache results for 1 hour (employee data changes less frequently)
-        cache.set(cache_key, result, 3600)
+        # Если есть дополнительные фильтры, добавляем их
+        if filters:
+            data.update(filters)
+        
+        logger.debug(f"Getting employees with data: {data}")
+        result = self._make_request('POST', 'user/list', data=data)
+        
+        # Cache results for 5 minutes
+        cache.set(cache_key, result, 300)
         return result
     
     def get_employee(self, employee_id: Union[str, int]) -> Dict:
@@ -438,11 +516,13 @@ class PlanfixAPI:
         try:
             # Sync projects
             projects_data = self.get_projects(limit=500)
+            logger.debug(f"Projects data: {projects_data}")
             projects = projects_data.get('projects', [])
             stats['projects'] = len(projects)
             
             # Sync employees
             employees_data = self.get_employees(limit=500)
+            logger.debug(f"Employees data: {employees_data}")
             employees = employees_data.get('users', [])
             stats['employees'] = len(employees)
             
@@ -451,27 +531,56 @@ class PlanfixAPI:
             limit = 100
             while True:
                 tasks_data = self.get_tasks(limit=limit, offset=offset)
-                tasks = tasks_data.get('tasks', [])
+                logger.debug(f"Tasks data: {tasks_data}")
                 
+                # Проверяем структуру ответа
+                if not isinstance(tasks_data, dict):
+                    logger.error(f"Unexpected tasks data type: {type(tasks_data)}")
+                    stats['errors'].append(f"Unexpected tasks data type: {type(tasks_data)}")
+                    break
+                
+                tasks = tasks_data.get('tasks', [])
                 if not tasks:
                     break
-                    
+                
+                logger.debug(f"Processing {len(tasks)} tasks (offset: {offset})")
                 stats['tasks'] += len(tasks)
                 
                 # For each task, sync comments and attachments
-                for task in tasks:
+                for i, task in enumerate(tasks):
                     try:
+                        # Проверяем, что task это словарь
+                        if not isinstance(task, dict):
+                            logger.error(f"Task {i} is not a dictionary: {task}")
+                            continue
+                            
+                        # Логируем структуру задачи для отладки
+                        logger.debug(f"Task {i} structure: {task}")
+                        
                         task_id = task.get('id')
+                        if not task_id:
+                            logger.error(f"Task {i} has no ID: {task}")
+                            continue
                         
                         # Sync comments
-                        comments = self.get_task_comments(task_id)
-                        stats['comments'] += len(comments)
+                        try:
+                            comments = self.get_task_comments(task_id)
+                            stats['comments'] += len(comments)
+                        except Exception as e:
+                            logger.error(f"Error getting comments for task {task_id}: {str(e)}")
+                            stats['errors'].append(f"Error getting comments for task {task_id}: {str(e)}")
                         
                         # Sync attachments
-                        attachments = self.get_task_attachments(task_id)
-                        stats['attachments'] += len(attachments)
-                    except PlanfixAPIError as e:
-                        stats['errors'].append(str(e))
+                        try:
+                            attachments = self.get_task_attachments(task_id)
+                            stats['attachments'] += len(attachments)
+                        except Exception as e:
+                            logger.error(f"Error getting attachments for task {task_id}: {str(e)}")
+                            stats['errors'].append(f"Error getting attachments for task {task_id}: {str(e)}")
+                            
+                    except Exception as e:
+                        logger.error(f"Error processing task {i}: {str(e)}")
+                        stats['errors'].append(f"Error processing task {i}: {str(e)}")
                 
                 offset += limit
                 
@@ -483,6 +592,10 @@ class PlanfixAPI:
         except PlanfixAPIError as e:
             logger.error(f"Error during data synchronization: {str(e)}")
             stats['errors'].append(str(e))
+            return stats
+        except Exception as e:
+            logger.error(f"Unexpected error during synchronization: {str(e)}")
+            stats['errors'].append(f"Unexpected error: {str(e)}")
             return stats
             
     def get_tasks_due_soon(self, days: int = 7, limit: int = 10) -> List[Dict]:
